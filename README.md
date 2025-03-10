@@ -1,4 +1,6 @@
-# TO-DO-LIST Google-OAuth-2.0
+# TO-DO-LIST Google-OAuth-2.0 - Giuseppe Palumbo
+
+## Introduzione:
 La seguente applicazione web permette di creare, scaricare e importare una lista con la possibilità di aggiungere o eliminare voci. I dati della lista non vengono salvati in un database, ma sono memorizzati nel localStorage del browser, risultando accessibili solo dallo stesso dispositivo e dallo stesso browser. Se l'utente cambia dispositivo, usa un altro browser o svuota la cache, la lista andrà persa.
 
 Per accedere alla web app, è necessario autenticarsi tramite Google OAuth 2.0.
