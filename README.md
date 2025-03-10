@@ -38,12 +38,14 @@ to-do-list-google-oauth-2.0/
 ```
 
 
-```📘 Rotte principali :
+```
+📘 Rotte principali :
 GET /: Home page.
 GET /login: Pagina di login.
 GET /auth/google: Avvia l'autenticazione con Google.
 GET /auth/google/callback: Callback dopo l'autenticazione.
-GET /logout: Disconnette l'utente.```
+GET /logout: Disconnette l'utente.
+```
 
 
 :gear: ## Prerequisiti:
@@ -51,19 +53,23 @@ GET /logout: Disconnette l'utente.```
 - [NPM](https://www.npmjs.com/)
 - Un account su [Google Cloud Console](https://console.cloud.google.com/).
 
-```#Installazine delle dipendenze:
+```
+#Installazine delle dipendenze:
 npm install
 npm init -y
 npm install express passport passport-google-oauth20 dotenv ejs
 npm install express
-npm install express-session```
+npm install express-session
+```
 
 
-```:gear: Configurazione delle variabili d'ambiente creando un file .env:
+:gear: Configurazione delle variabili d'ambiente creando un file .env:
+```
 PORT=3000
 GOOGLE_CLIENT_ID=<Il-tuo-Client-ID>
 GOOGLE_CLIENT_SECRET=<Il-tuo-Client-Secret>
-SESSION_SECRET=<Un-segreto-casuale>```
+SESSION_SECRET=<Un-segreto-casuale>
+```
 
 
 📂 File ignorati (.gitignore)
