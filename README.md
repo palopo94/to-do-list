@@ -5,7 +5,7 @@ L'applicazione è sviluppata con Node.js e utilizza Passport.js per gestire il l
 
 ---
 
-:spiral_notepad: #Flusso di Autenticazione con Google OAuth 2.0:
+:spiral_notepad: **Flusso di Autenticazione con Google OAuth 2.0:**
 1. L'utente clicca su "Login con Google".
 2. Passport.js reindirizza l'utente al server di Google per l'autenticazione OAuth.
 3. Google autentica l'utente e reindirizza al callbackURL con un authorization code.
@@ -15,13 +15,13 @@ L'applicazione è sviluppata con Node.js e utilizza Passport.js per gestire il l
 
 ---
 
-🧑‍💻 Ambienti Utilizzati:
+🧑‍💻 **Ambienti Utilizzati:**
 - WSL Ubuntu.
 - Visual Studio Code.
 
 ---
 
-🛠️ Tecnologie utilizzate:
+🛠️ **Tecnologie utilizzate:**
 - Node.js: Ambiente runtime per l'esecuzione del codice JavaScript.
 - Express.js:  Framework web per gestire le route e costruire API RESTful.
 - Passport.js: Middleware di autenticazione che supporta diversi tipi di autenticazione come OAuth 2.0.
@@ -30,7 +30,7 @@ L'applicazione è sviluppata con Node.js e utilizza Passport.js per gestire il l
 
 ---
 
-📂 Struttura del progetto:
+📂 **Struttura del progetto:**
 ```
 to-do-list-google-oauth-2.0/
 ├── src/				  # per il codice sorgente
@@ -46,7 +46,7 @@ to-do-list-google-oauth-2.0/
 ```
 ---
 
-📘 Rotte principali:
+📘 **Rotte principali:**
 - GET /: Home page.
 - GET /login: Pagina di login.
 - GET /auth/google: Avvia l'autenticazione con Google.
@@ -55,14 +55,14 @@ to-do-list-google-oauth-2.0/
 
 ---
 
-:gear: Prerequisiti:
+:gear: **Prerequisiti:**
 - [Node.js](https://nodejs.org/) (v14 o successiva)
 - [NPM](https://www.npmjs.com/)
 - Un account su [Google Cloud Console](https://console.cloud.google.com/).
 
 ---
 
-📦 Installazine delle dipendenze:
+📦 **Installazione delle dipendenze:**
 ```
 npm install
 npm init -y
@@ -72,7 +72,8 @@ npm install express-session
 ```
 ---
 
-🔧 Configurazione delle variabili d'ambiente creando un file .env:
+🔧 **Configurazione delle variabili d'ambiente**:  
+In un file .env aggiungere le seguenti entry:
 ```
 PORT=3000
 GOOGLE_CLIENT_ID=<Il-tuo-Client-ID>
@@ -81,7 +82,7 @@ SESSION_SECRET=<Un-segreto-casuale>
 ```
 ---
 
-📂 File ignorati: (.gitignore)
+📂 **File ignorati:** (.gitignore)
 - node_modules/
 - .env
 - package.json
@@ -89,7 +90,7 @@ SESSION_SECRET=<Un-segreto-casuale>
 
 ---
 
-📜 Creazione Account Google: \n
+📜 **Creazione Account Google:**  
 Operazioni principali:
 - Creazione di un progetto su Google Cloud.
 - Abilitazione dell'API.
@@ -100,19 +101,19 @@ Operazioni principali:
 
 ---
 
-:rocket: Come avviare l'applicazione:  
-Da terminale, lanciare: node src/app.js
+:rocket: **Come avviare l'applicazione:**  
+Da terminale, lanciare: **node src/app.js**
 
 ---
 
-👮‍♂️ Problemi di Sicurezza Rilevati e Soluzioni:  
+👮‍♂️ **Problemi di Sicurezza Rilevati e Soluzioni:**  
 
-⚠️Problemi di Sicurezza:
-- Man-in-the-Middle (MITM): L'assenza di HTTPS espone le comunicazioni, inclusi i token OAuth, a potenziali intercettazioni.
-- Replay Attack: OAuth 2.0, utilizzato da Passport.js, offre protezione contro attacchi di tipo replay grazie a token temporanei e autorizzazioni basate su scope. Tuttavia, senza gestione delle sessioni e revoca dei token, un token compromesso potrebbe essere riutilizzato.
-- Session Hijacking: Senza una corretta configurazione dei cookie di sessione (HttpOnly, Secure, SameSite), questi possono essere vulnerabili a furti tramite XSS o intercettazioni di rete.
+⚠️ **Problemi di Sicurezza:**
+- **Man-in-the-Middle (MITM):** L'assenza di HTTPS espone le comunicazioni, inclusi i token OAuth, a potenziali intercettazioni.
+- **Replay Attack:** OAuth 2.0, utilizzato da Passport.js, offre protezione contro attacchi di tipo replay grazie a token temporanei e autorizzazioni basate su scope. Tuttavia, senza gestione delle sessioni e revoca dei token, un token compromesso potrebbe essere riutilizzato.
+- **Session Hijacking:** Senza una corretta configurazione dei cookie di sessione (HttpOnly, Secure, SameSite), questi possono essere vulnerabili a furti tramite XSS o intercettazioni di rete.
 
-✅ Soluzioni Implementate:
-- Man-in-the-Middle: Abilitato l'uso obbligatorio di HTTPS per proteggere le comunicazioni.
-- Replay Attack: Implementata una durata breve per i token e revoca automatica dopo il logout.
-- Session Hijacking: Configurati i cookie di sessione con i flag HttpOnly, Secure, SameSite e impostata una durata limitata per le sessioni.
+✅ **Soluzioni Implementate:**
+- **Man-in-the-Middle:** Abilitato l'uso obbligatorio di HTTPS per proteggere le comunicazioni.
+- **Replay Attack:** Implementata una durata breve per i token e revoca automatica dopo il logout.
+- **Session Hijacking:** Configurati i cookie di sessione con i flag HttpOnly, Secure, SameSite e impostata una durata limitata per le sessioni.
