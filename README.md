@@ -11,11 +11,9 @@ L'applicazione è sviluppata con Node.js e utilizza Passport.js per gestire il l
 5. Passport.js recupera il profilo dell'utente e lo salva nella sessione (o in un database, se configurato).
 6. L'utente autenticato può ora accedere alle funzionalità dell'applicazione.
 
-#Ambiente Utilizzato:
-```
-WSL Ubuntu.
-Visual Studio Code.
-```
+#Ambienti Utilizzati:
+- WSL Ubuntu.
+- Visual Studio Code.
 
 🛠️ Tecnologie utilizzate
 - Node.js: Ambiente runtime per l'esecuzione del codice JavaScript.
@@ -82,21 +80,19 @@ SESSION_SECRET=<Un-segreto-casuale>
 
 
 
-
-#Creazione Account Google
-Per abilitare l'autenticazione con Google, è necessario creare un progetto su Google Cloud Console, abilitare l'API e generare le credenziali OAuth 2.0 per un applicazione web.
+#Creazione Account Google: \n
 
 Operazioni principali:
 - Creazione di un progetto su Google Cloud.
 - Abilitazione dell'API.
-- Generazione delle credenziali OAuth 2.0 (Client ID e Client Secret).
+- Generazione delle credenziali OAuth 2.0 (Client ID e Client Secret) per un applicazione web.
 - Configurazione dei Redirect URI, includendo http://localhost:3000/auth/google/callback per l'ambiente di sviluppo.
 
 [alt text](image.png)
 
 
 :rocket: # Come avviare l'applicazione:
-node src/app.js
+- Da terminale, lanciare: node src/app.js
 
 
 
