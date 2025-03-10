@@ -11,7 +11,7 @@ L'applicazione è sviluppata con Node.js e utilizza Passport.js per gestire il l
 5. Passport.js recupera il profilo dell'utente e lo salva nella sessione (o in un database, se configurato).
 6. L'utente autenticato può ora accedere alle funzionalità dell'applicazione.
 
-#Ambienti Utilizzati:
+🧑‍💻 #Ambienti Utilizzati:
 - WSL Ubuntu.
 - Visual Studio Code.
 
@@ -53,7 +53,7 @@ to-do-list-google-oauth-2.0/
 - Un account su [Google Cloud Console](https://console.cloud.google.com/).
 
 
-#Installazine delle dipendenze:
+📦 #Installazine delle dipendenze:
 ```
 npm install
 npm init -y
@@ -80,8 +80,7 @@ SESSION_SECRET=<Un-segreto-casuale>
 
 
 
-#Creazione Account Google: \n
-
+📜 #Creazione Account Google: \n
 Operazioni principali:
 - Creazione di un progetto su Google Cloud.
 - Abilitazione dell'API.
@@ -97,12 +96,12 @@ Operazioni principali:
 
 
 :safety_pin: ##Problemi di Sicurezza Rilevati e Soluzioni:
-#Problemi di Sicurezza
-Man-in-the-Middle (MITM): L'assenza di HTTPS espone le comunicazioni, inclusi i token OAuth, a potenziali intercettazioni.
-Replay Attack: OAuth 2.0, utilizzato da Passport.js, offre protezione contro attacchi di tipo replay grazie a token temporanei e autorizzazioni basate su scope. Tuttavia, senza gestione delle sessioni e revoca dei token, un token compromesso potrebbe essere riutilizzato.
-Session Hijacking: Senza una corretta configurazione dei cookie di sessione (HttpOnly, Secure, SameSite), questi possono essere vulnerabili a furti tramite XSS o intercettazioni di rete.
+#Problemi di Sicurezza:
+- Man-in-the-Middle (MITM): L'assenza di HTTPS espone le comunicazioni, inclusi i token OAuth, a potenziali intercettazioni.
+- Replay Attack: OAuth 2.0, utilizzato da Passport.js, offre protezione contro attacchi di tipo replay grazie a token temporanei e autorizzazioni basate su scope. Tuttavia, senza gestione delle sessioni e revoca dei token, un token compromesso potrebbe essere riutilizzato.
+- Session Hijacking: Senza una corretta configurazione dei cookie di sessione (HttpOnly, Secure, SameSite), questi possono essere vulnerabili a furti tramite XSS o intercettazioni di rete.
 
-#Soluzioni Implementate
-Man-in-the-Middle: Abilitato l'uso obbligatorio di HTTPS per proteggere le comunicazioni.
-Replay Attack: Implementata una durata breve per i token e revoca automatica dopo il logout.
-Session Hijacking: Configurati i cookie di sessione con i flag HttpOnly, Secure, SameSite e impostata una durata limitata per le sessioni.
+#Soluzioni Implementate:
+- Man-in-the-Middle: Abilitato l'uso obbligatorio di HTTPS per proteggere le comunicazioni.
+- Replay Attack: Implementata una durata breve per i token e revoca automatica dopo il logout.
+- Session Hijacking: Configurati i cookie di sessione con i flag HttpOnly, Secure, SameSite e impostata una durata limitata per le sessioni.
