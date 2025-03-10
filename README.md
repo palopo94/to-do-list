@@ -21,7 +21,7 @@ L'applicazione è sviluppata con Node.js e utilizza Passport.js per gestire il l
 
 ---
 
-🛠️ Tecnologie utilizzate
+🛠️ Tecnologie utilizzate:
 - Node.js: Ambiente runtime per l'esecuzione del codice JavaScript.
 - Express.js:  Framework web per gestire le route e costruire API RESTful.
 - Passport.js: Middleware di autenticazione che supporta diversi tipi di autenticazione come OAuth 2.0.
@@ -30,7 +30,7 @@ L'applicazione è sviluppata con Node.js e utilizza Passport.js per gestire il l
 
 ---
 
-📂 Struttura del progetto
+📂 Struttura del progetto:
 ```
 to-do-list-google-oauth-2.0/
 ├── src/				  # per il codice sorgente
@@ -46,7 +46,7 @@ to-do-list-google-oauth-2.0/
 ```
 ---
 
-📘 Rotte principali :
+📘 Rotte principali:
 - GET /: Home page.
 - GET /login: Pagina di login.
 - GET /auth/google: Avvia l'autenticazione con Google.
@@ -81,7 +81,7 @@ SESSION_SECRET=<Un-segreto-casuale>
 ```
 ---
 
-📂 File ignorati (.gitignore)
+📂 File ignorati: (.gitignore)
 - node_modules/
 - .env
 - package.json
@@ -100,12 +100,13 @@ Operazioni principali:
 
 ---
 
-:rocket: Come avviare l'applicazione:
+:rocket: Come avviare l'applicazione:  
 Da terminale, lanciare: node src/app.js
 
 ---
 
-👮‍♂️ Problemi di Sicurezza Rilevati e Soluzioni:
+👮‍♂️ Problemi di Sicurezza Rilevati e Soluzioni:  
+
 ⚠️Problemi di Sicurezza:
 - Man-in-the-Middle (MITM): L'assenza di HTTPS espone le comunicazioni, inclusi i token OAuth, a potenziali intercettazioni.
 - Replay Attack: OAuth 2.0, utilizzato da Passport.js, offre protezione contro attacchi di tipo replay grazie a token temporanei e autorizzazioni basate su scope. Tuttavia, senza gestione delle sessioni e revoca dei token, un token compromesso potrebbe essere riutilizzato.
