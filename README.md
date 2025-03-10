@@ -73,11 +73,12 @@ SESSION_SECRET=<Un-segreto-casuale>
 
 
 📂 File ignorati (.gitignore)
+```
 node_modules/
 .env
 package.json
 package-lock.json
-
+```
 
 
 # Creazione Account Google:
