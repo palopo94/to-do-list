@@ -1,6 +1,6 @@
 La seguente applicazione web permette di creare, scaricare e importare una lista con la possibilità di aggiungere o eliminare voci. I dati della lista non vengono salvati in un database, ma sono memorizzati nel localStorage del browser, risultando accessibili solo dallo stesso dispositivo e dallo stesso browser. Se l'utente cambia dispositivo, usa un altro browser o svuota la cache, la lista andrà persa.
 
-Per accedere alla web app, è necessario autenticarsi tramite Google OAuth 2.0. ù
+Per accedere alla web app, è necessario autenticarsi tramite Google OAuth 2.0.
 L'applicazione è sviluppata con Node.js e utilizza Passport.js per gestire il login federato con Google.
 
 :spiral_notepad: #Flusso di Autenticazione con Google OAuth 2.0:
@@ -12,7 +12,10 @@ L'applicazione è sviluppata con Node.js e utilizza Passport.js per gestire il l
 6. L'utente autenticato può ora accedere alle funzionalità dell'applicazione.
 
 #Ambiente Utilizzato:
-Visual studio code su windows.
+```
+WSL Ubuntu.
+Visual Studio Code.
+```
 
 🛠️ Tecnologie utilizzate
 - Node.js: Ambiente runtime per l'esecuzione del codice JavaScript.
@@ -38,14 +41,12 @@ to-do-list-google-oauth-2.0/
 ```
 
 
-```
 📘 Rotte principali :
-GET /: Home page.
-GET /login: Pagina di login.
-GET /auth/google: Avvia l'autenticazione con Google.
-GET /auth/google/callback: Callback dopo l'autenticazione.
-GET /logout: Disconnette l'utente.
-```
+- GET /: Home page.
+- GET /login: Pagina di login.
+- GET /auth/google: Avvia l'autenticazione con Google.
+- GET /auth/google/callback: Callback dopo l'autenticazione.
+- GET /logout: Disconnette l'utente.
 
 
 :gear: ## Prerequisiti:
@@ -53,8 +54,9 @@ GET /logout: Disconnette l'utente.
 - [NPM](https://www.npmjs.com/)
 - Un account su [Google Cloud Console](https://console.cloud.google.com/).
 
-```
+
 #Installazine delle dipendenze:
+```
 npm install
 npm init -y
 npm install express passport passport-google-oauth20 dotenv ejs
@@ -73,24 +75,24 @@ SESSION_SECRET=<Un-segreto-casuale>
 
 
 📂 File ignorati (.gitignore)
-```
-node_modules/
-.env
-package.json
-package-lock.json
-```
+- node_modules/
+- .env
+- package.json
+- package-lock.json
 
 
-# Creazione Account Google:
+
+
+#Creazione Account Google
 Per abilitare l'autenticazione con Google, è necessario creare un progetto su Google Cloud Console, abilitare l'API e generare le credenziali OAuth 2.0 per un applicazione web.
 
 Operazioni principali:
-Creazione di un progetto su Google Cloud.
-Abilitazione dell'API.
-Generazione delle credenziali OAuth 2.0 (Client ID e Client Secret).
-Configurazione dei Redirect URI, includendo http://localhost:3000/auth/google/callback per l'ambiente di sviluppo.
+- Creazione di un progetto su Google Cloud.
+- Abilitazione dell'API.
+- Generazione delle credenziali OAuth 2.0 (Client ID e Client Secret).
+- Configurazione dei Redirect URI, includendo http://localhost:3000/auth/google/callback per l'ambiente di sviluppo.
 
-SCREEN!!!!!
+[alt text](image.png)
 
 
 :rocket: # Come avviare l'applicazione:
