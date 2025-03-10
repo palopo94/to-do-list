@@ -96,7 +96,7 @@ Operazioni principali:
 - Generazione delle credenziali OAuth 2.0 (Client ID e Client Secret) per un applicazione web.
 - Configurazione dei Redirect URI, includendo http://localhost:3000/auth/google/callback per l'ambiente di sviluppo.
 
-Google-credential.png
+![Logo](Google-credential.png)
 
 ---
 
