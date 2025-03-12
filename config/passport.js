@@ -1,14 +1,38 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const User = require('../models/User');
 
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: '/auth/google/callback'
-}, (accessToken, refreshToken, profile, done) => {
-    done(null, profile); // Puoi salvare il profilo in un database
+}, async (accessToken, refreshToken, profile, done) => {
+    try {
+        // Controlla se l'utente esiste nel database
+        let user = await User.findOne({ googleId: profile.id });
+
+        if (!user) {
+            // Se non esiste, crealo
+            user = new User({
+                googleId: profile.id,
+                displayName: profile.displayName,
+                email: profile.emails[0].value
+            });
+            await user.save();
+        }
+
+        done(null, user);
+    } catch (error) {
+        done(error, null);
+    }
 }));
 
-passport.serializeUser((user, done) => done(null, user));
-passport.deserializeUser((user, done) => done(null, user));
-
+passport.serializeUser((user, done) => done(null, user.id));
+passport.deserializeUser(async (id, done) => {
+    try {
+        const user = await User.findById(id);
+        done(null, user);
+    } catch (error) {
+        done(error, null);
+    }
+});

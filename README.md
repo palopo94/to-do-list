@@ -1,7 +1,7 @@
 # TO-DO-LIST Google-OAuth-2.0 - Giuseppe Palumbo
 
 ## Introduzione:
-La seguente applicazione web permette di creare, scaricare e importare una lista con la possibilità di aggiungere o eliminare voci. I dati della lista non vengono salvati in un database, ma sono memorizzati nel localStorage del browser, risultando accessibili solo dallo stesso dispositivo e dallo stesso browser. Se l'utente cambia dispositivo, usa un altro browser o svuota la cache, la lista andrà persa.
+La seguente applicazione web permette di creare, scaricare e importare una lista con la possibilità di aggiungere o eliminare elementi.I dati della lista vengono salvati in un database MongoDB, il che garantisce la persistenza dei dati tra sessioni e dispositivi diversi.
 
 Per accedere alla web app, è necessario autenticarsi tramite Google OAuth 2.0.
 L'applicazione è sviluppata con Node.js e utilizza Passport.js per gestire il login federato con Google.
@@ -21,6 +21,7 @@ L'applicazione è sviluppata con Node.js e utilizza Passport.js per gestire il l
 🧑‍💻 **Ambienti Utilizzati:**
 - WSL Ubuntu.
 - Visual Studio Code.
+- Docker.
 
 ---
 
@@ -30,6 +31,8 @@ L'applicazione è sviluppata con Node.js e utilizza Passport.js per gestire il l
 - Passport.js: Middleware di autenticazione che supporta diversi tipi di autenticazione come OAuth 2.0.
 - Google OAuth 2.0 API: Protocollo per il login federato con Google come provider.
 - Express-Session: Middleware per la gestione delle sessioni che ad ogni richiesta controlla la scadenza della sessione.
+- MongoDB: Database NoSQL per la memorizzazione persistente dei dati.
+- Mongoose: Libreria ODM (Object Data Modeling) per MongoDB, utilizzata per la gestione delle operazioni sul database.
 
 ---
 
@@ -62,16 +65,17 @@ to-do-list-google-oauth-2.0/
 - [Node.js](https://nodejs.org/) (v14 o successiva)
 - [NPM](https://www.npmjs.com/)
 - Un account su [Google Cloud Console](https://console.cloud.google.com/).
+- Docker (per eseguire MongoDB tramite container)
 
 ---
 
 📦 **Installazione delle dipendenze:**
 ```
-npm install
 npm init -y
 npm install express passport passport-google-oauth20 dotenv ejs
 npm install express
 npm install express-session
+npm install mongoose
 ```
 ---
 
@@ -82,6 +86,7 @@ PORT=3000
 GOOGLE_CLIENT_ID=<Il-tuo-Client-ID>
 GOOGLE_CLIENT_SECRET=<Il-tuo-Client-Secret>
 SESSION_SECRET=<Un-segreto-casuale>
+MONGODB_URI=mongodb://localhost:27017/todolist
 ```
 ---
 
@@ -90,6 +95,7 @@ SESSION_SECRET=<Un-segreto-casuale>
 - .env
 - package.json
 - package-lock.json
+- data/
 
 ---
 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body>
+    <h1>Benvenuto <%= user.displayName %></h1>
+
+    <form action="/todo/add" method="POST">
+        <input type="text" name="task" placeholder="Aggiungi una nuova attività">
+        <button type="submit">Aggiungi</button>
+    </form>
+
+    <h2>Lista delle Attività</h2>
+    <ul>
+        <% tasks.forEach(task => { %>
+            <li>
+                <%= task.text %> - <%= task.done ? "Completata" : "Non completata" %>
+                <form action="/todo/complete" method="POST">
+                    <input type="hidden" name="taskId" value="<%= task._id %>">
+                    <button type="submit" <%= task.done ? "disabled" : "" %> >Segna come completata</button>
+                </form>
+                <form action="/todo/delete" method="POST">
+                    <input type="hidden" name="taskId" value="<%= task._id %>">
+                    <button type="submit">Elimina</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
+
